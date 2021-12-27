@@ -15,30 +15,42 @@ main_window.title("Gebbrowser")
 
 
 """Fonts"""
-large_font = font.Font(family="Gothic Medium", size=100)
+large_font = font.Font(family="Gothic Medium", size=110)
 
 
 """Frames"""
 left_frame = Frame(master=main_window,
-bg=cream, width=200, height=1100).grid(row=1, column=1, rowspan=10)
+bg=cream, width=200, height=1100).grid(row=1, column=1, rowspan=100, columnspan=20)
 
 centre_frame = Frame(master=main_window,
-bg="white").grid(row=1, column=2, rowspan=10, columnspan=8)
+bg="white").grid(row=1, column=21, rowspan=100, columnspan=80)
 
 
 """Labels and Buttons"""
 # left frame
 history_button = Button(master=left_frame,
 text="History",
-bg=cream).grid(row=4, column=1)
+bg=cream).grid(row=4, column=1, columnspan=20)
 
 # centre frame
 Gebbrowser_label = Label(master=centre_frame,
 text="Gebbrowser", font=large_font,
-bg="white", anchor='center').grid(row=2, column=4, rowspan=3, columnspan=4)
+bg="white", anchor='center',
+width=14, height=4).grid(row=1, column=22, rowspan=9, columnspan=50)
 
 """Search bar"""
-search_bar = Entry(master=centre_frame)
+search_text = StringVar()
+search_label = Label(master=centre_frame, text="Enter URL",
+bg="white", width=7).grid(row=5, rowspan=6, column=21, columnspan=10)
+search_bar = Entry(master=centre_frame, textvariable=search_text,
+width=70).grid(row=5, column=23, columnspan=79, rowspan=5)
+
+def returningsearch():
+    search = search_text.get()
+    print(search)
+
+search_enter_button = Button(master=centre_frame, command=returningsearch,
+bg="white", text="Enter Search", background="white", activebackground="white").grid(row=8, column=23, columnspan=79, rowspan=1)
 
 
 main_window.mainloop()
