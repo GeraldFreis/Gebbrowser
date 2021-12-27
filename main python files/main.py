@@ -35,8 +35,10 @@ bg=cream).grid(row=4, column=1)
 # centre frame
 Gebbrowser_label = Label(master=centre_frame,
 text="Gebbrowser", font=large_font,
-bg="white").grid(row=2, column=3, rowspan=3, columnspan=3)
+bg="white", anchor='center').grid(row=2, column=4, rowspan=3, columnspan=4)
 
+"""Search bar"""
+search_bar = Entry(master=centre_frame)
 
 
 main_window.mainloop()

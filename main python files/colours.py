@@ -1,2 +1,2 @@
 
-cream = "#FFFDD1"
+cream = "#f7f7ed"
