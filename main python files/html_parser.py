@@ -3,7 +3,10 @@ from os import defpath, write
 from typing import Literal
 import urllib
 from urllib.request import urlopen
-from bs4 import BeautifulSoup
+try:
+    from bs4 import BeautifulSoup
+except Exception:
+    pass
 
 """Globals"""
 base_url = "http://www.blankwebsite.com/"
@@ -28,7 +31,6 @@ class UrlParser():
             if line_spacer_1 and line_spacer_2 in line:
                 content_list.append(line.split(line_spacer_1))
             
-        # print(content_list)
     
     def findingtitle2(self):
         """Setting up the doc and making it prettier"""
@@ -36,6 +38,8 @@ class UrlParser():
         soup = BeautifulSoup(html_doc, 'html.parser')
         html_doc_write = open("urltext.html", "w")
         html_doc_write.write(soup.prettify())
+
+        # print(soup.prettify())
         
         # if "<TITLE>" in content_list:
         #     print(content_list)
