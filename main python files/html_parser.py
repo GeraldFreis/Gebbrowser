@@ -28,13 +28,6 @@ class UrlParser():
             self.soup = BeautifulSoup(self.html_doc, 'html.parser')
             self.html_doc_write = open("urltext.html", "w")
             self.html_doc_write.write(self.soup.prettify())
-            # self.html_doc_write = open("urltext.html", 'w')
-
-            # """Setting up the doc and making it prettier"""
-            # self.html_doc = open("urltext.html", "r")
-            # self.soup = BeautifulSoup(self.html_doc, 'html.parser')
-            # self.html_doc_write = open("urltext.html", "w")
-            # self.html_doc_write.write(self.soup.prettify())
 
     def findingtitle(self):
         """Returning the title"""
