@@ -33,11 +33,16 @@ class UrlParser():
         """Returning the title"""
         self.page_title = self.soup.title.string
         print(self.page_title)
+    
+    def findingtext(self):
+        self.textvars = self.soup.text
+        print(self.textvars)
 
 def urlparser_compiled():
     urlparser = UrlParser(base_url)
     urlparser.contenttofile()
     urlparser.findingtitle()
+    urlparser.findingtext()
 
 urlparser_compiled()
 
