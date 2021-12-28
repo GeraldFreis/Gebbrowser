@@ -12,6 +12,7 @@ except Exception:
 base_url = "http://www.blankwebsite.com/"
 google_url = "https://www.google.com"
 
+"""Parser to find the main text elements"""
 class UrlParser():
     def __init__(self, urltoparse):
         self.url_to_parse = urltoparse
