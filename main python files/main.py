@@ -49,6 +49,7 @@ width=70).grid(row=5, column=23, columnspan=79, rowspan=5)
 def returningsearch():
     search = search_text.get()
     searchprotocol = WhenSearched(search)
+    searchprotocol.widgets()
     searchprotocol.apply()
 
 search_enter_button = Button(master=centre_frame, command=returningsearch,
