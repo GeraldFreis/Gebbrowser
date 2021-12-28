@@ -12,8 +12,8 @@ except Exception:
 base_url = "http://www.blankwebsite.com/"
 google_url = "https://www.google.com"
 
-"""Parser to find the main text elements"""
-class UrlParser():
+"""Parser to find the main html elements"""
+class HtmlParser():
     def __init__(self, urltoparse):
         self.url_to_parse = urltoparse
     
@@ -39,12 +39,12 @@ class UrlParser():
         self.textvars = self.soup.text
         print(self.textvars)
 
-def urlparser_compiled():
-    urlparser = UrlParser(base_url)
-    urlparser.contenttofile()
-    urlparser.findingtitle()
-    urlparser.findingtext()
+def HtmlParser_compiled():
+    htmlparser = HtmlParser(base_url)
+    htmlparser.contenttofile()
+    htmlparser.findingtitle()
+    htmlparser.findingtext()
 
-urlparser_compiled()
+HtmlParser_compiled()
 
 
