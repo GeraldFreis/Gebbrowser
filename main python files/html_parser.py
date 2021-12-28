@@ -18,36 +18,33 @@ class UrlParser():
     
     def contenttofile(self):
         with urlopen(self.url_to_parse) as f:
-            text = str(f.read())
-            temptext = open("urltext.html", "w")
-            temptext.write(text)
-    
-    def findingtitle(self):
-        temp_html_file = open("urltext.html", "r")
-        line_spacer_1 = r'<'
-        line_spacer_2 = r'>'
-        content_list = list()
-        for line in temp_html_file: 
-            if line_spacer_1 and line_spacer_2 in line:
-                content_list.append(line.split(line_spacer_1))
-            
-    
-    def findingtitle2(self):
-        """Setting up the doc and making it prettier"""
-        html_doc = open("urltext.html", "r")
-        soup = BeautifulSoup(html_doc, 'html.parser')
-        html_doc_write = open("urltext.html", "w")
-        html_doc_write.write(soup.prettify())
 
-        # print(soup.prettify())
-        
-        # if "<TITLE>" in content_list:
-        #     print(content_list)
+            self.text = str(f.read())
+            self.temptext = open("urltext.html", "w")
+            self.temptext.write(self.text)
+            self.temptext.close()
+
+            self.html_doc = open("urltext.html", "r")
+            self.soup = BeautifulSoup(self.html_doc, 'html.parser')
+            self.html_doc_write = open("urltext.html", "w")
+            self.html_doc_write.write(self.soup.prettify())
+            # self.html_doc_write = open("urltext.html", 'w')
+
+            # """Setting up the doc and making it prettier"""
+            # self.html_doc = open("urltext.html", "r")
+            # self.soup = BeautifulSoup(self.html_doc, 'html.parser')
+            # self.html_doc_write = open("urltext.html", "w")
+            # self.html_doc_write.write(self.soup.prettify())
+
+    def findingtitle(self):
+        """Returning the title"""
+        self.page_title = self.soup.title.string
+        print(self.page_title)
 
 def urlparser_compiled():
-    urlparser = UrlParser(google_url)
+    urlparser = UrlParser(base_url)
     urlparser.contenttofile()
-    urlparser.findingtitle2()
+    urlparser.findingtitle()
 
 urlparser_compiled()
 
