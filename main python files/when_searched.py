@@ -17,12 +17,12 @@ class WhenSearched():
         self.search_window.geometry("900x600+210+0")
         self.search_window.config(bg="white")
     
-    def widgets(self):
+    def widgets(self, url):
         """Foundational widgets"""
         # Url bar
         self.url_bar_text = StringVar()
         self.url_bar = Entry(master=self.search_window,
-        textvariable=self.url_bar_text, width=35)
+        textvariable=self.url_bar_text, width=35, text=url)
 
         def searchingurl():
             search = self.url_bar_text.get()
@@ -34,7 +34,7 @@ class WhenSearched():
     def apply(self):
         """Foundational widgets"""
         self.url_bar.grid(row=2, column=21, columnspan=79, rowspan=10)
-        self.url_bar_button.grid(row=2, column=60, columnspan=20)
+        self.url_bar_button.grid(row=2, column=80, columnspan=20)
 
         self.search_window.mainloop()
 
