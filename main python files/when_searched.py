@@ -25,7 +25,7 @@ class WhenSearched():
         textvariable=self.url_bar_text, width=35, text=url)
 
         def searchingurl():
-            search = self.url_bar_text.get()
+            search = self.url_bar.get()
             htmlparser = HtmlParser(search)
             htmlparser.itertofindandlistcomponents()
         
