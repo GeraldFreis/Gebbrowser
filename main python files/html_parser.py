@@ -35,6 +35,10 @@ class HtmlParser():
 
 
         self.temporary_text_file_readable = open("temphtml.txt", "r")
+        self.html_doc.close()
+        self.html_doc_write.close()
+        self.temporary_text_file_writeable.close()
+        self.temporary_text_file_readable.close()
         
 
 
@@ -47,7 +51,11 @@ class HtmlParser():
         return self.soup.text
     
     def itertofindandlistcomponents(self):
-        print(self.soup)
-
-# htmlparser = HtmlParser(base_url)
-# htmlparser.itertofindandlistcomponents()
+        doc = open("temphtml.txt", "r")
+        for row in doc:
+            if "<body" in row:
+                print(row)
+            else:
+                pass
+htmlparser = HtmlParser(base_url)
+htmlparser.itertofindandlistcomponents()
