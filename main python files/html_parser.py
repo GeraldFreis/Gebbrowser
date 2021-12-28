@@ -16,8 +16,7 @@ google_url = "https://www.google.com"
 class HtmlParser():
     def __init__(self, urltoparse):
         self.url_to_parse = urltoparse
-    
-    def contenttofile(self):
+
         with urlopen(self.url_to_parse) as f:
 
             self.text = str(f.read())
@@ -30,20 +29,31 @@ class HtmlParser():
             self.html_doc_write = open("urltext.html", "w")
             self.html_doc_write.write(self.soup.prettify())
 
+            """Iterating through the html doc and printing it to a temporary text file, once text file exists it is iterated through and produces a """
+            self.temporary_text_file_writeable = open("temphtml.txt", "w")
+            self.temporary_text_file_writeable.write(self.soup.prettify())
+
+
+        self.temporary_text_file_readable = open("temphtml.txt", "r")
+        
+
+
     def findingtitle(self):
         """Returning the title"""
-        self.page_title = self.soup.title.string
-        print(self.page_title)
-    
+        return self.soup.title.StringVar
+
     def findingtext(self):
-        self.textvars = self.soup.text
-        print(self.textvars)
+        """Returning text"""
+        return self.soup.text
+    
+    def itertofindandlistcomponents(self):
+        print(self.soup)
 
 def HtmlParser_compiled():
     htmlparser = HtmlParser(base_url)
-    htmlparser.contenttofile()
-    htmlparser.findingtitle()
-    htmlparser.findingtext()
+    # htmlparser.findingtitle()
+    # htmlparser.findingtext()
+    htmlparser.itertofindandlistcomponents()
 
 HtmlParser_compiled()
 

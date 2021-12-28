@@ -1,0 +1,114 @@
+b'\r\n\r\n
+<html>
+ \r\n
+ <head>
+  \r\n
+  <title>
+   Blank website. Blank site. Nothing to see here.
+  </title>
+  \r\n
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  \r\n
+  <meta content="blankwebsite, blank website" name="keywords"/>
+  \r\n
+  <meta content="This resource is provided as a free service for those patrons looking for nothing." name="description"/>
+  \r\n
+  <meta content="DLC Websites 1999-2021 - http://www.dlcwebsites.com" name="Author"/>
+  \r\n
+  <meta content="DLC Websites 1999-2021 - http://www.dlcwebsites.com - online tools and entertainment" name="Copyright"/>
+  \r\n
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  \r\n
+  <link href="\'sitestyle.css\'" rel="\'stylesheet\'" type="\'text/css\'"/>
+  \r\n
+ </head>
+ \r\n\r\n
+ <body bgcolor="#FFFFFF">
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+  </p>
+  \r\n
+  <p>
+   <b>
+    <a href="http://www.pointlesssites.com/">
+     Over 1,000 Pointless Sites
+    </a>
+   </b>
+  </p>
+  \r\n\r\n
+ </body>
+ \r\n
+</html>
+\r\n'
