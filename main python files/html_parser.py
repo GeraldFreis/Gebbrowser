@@ -40,7 +40,7 @@ class HtmlParser():
 
     def findingtitle(self):
         """Returning the title"""
-        return self.soup.title.StringVar
+        return self.soup.title.string
 
     def findingtext(self):
         """Returning text"""
@@ -49,5 +49,5 @@ class HtmlParser():
     def itertofindandlistcomponents(self):
         print(self.soup)
 
-htmlparser = HtmlParser(base_url)
-htmlparser.itertofindandlistcomponents()
+# htmlparser = HtmlParser(base_url)
+# htmlparser.itertofindandlistcomponents()

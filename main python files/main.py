@@ -5,6 +5,7 @@ from tkinter import *
 
 """Modular imports"""
 from colours import cream
+from when_searched import WhenSearched
 
 
 """Setting up the main window"""
@@ -47,7 +48,8 @@ width=70).grid(row=5, column=23, columnspan=79, rowspan=5)
 
 def returningsearch():
     search = search_text.get()
-    print(search)
+    searchprotocol = WhenSearched(search)
+    searchprotocol.apply()
 
 search_enter_button = Button(master=centre_frame, command=returningsearch,
 bg="white", text="Enter Search", background="white", activebackground="white").grid(row=8, column=23, columnspan=79, rowspan=1)
