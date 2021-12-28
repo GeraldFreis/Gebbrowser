@@ -49,12 +49,5 @@ class HtmlParser():
     def itertofindandlistcomponents(self):
         print(self.soup)
 
-def HtmlParser_compiled():
-    htmlparser = HtmlParser(base_url)
-    # htmlparser.findingtitle()
-    # htmlparser.findingtext()
-    htmlparser.itertofindandlistcomponents()
-
-HtmlParser_compiled()
-
-
+htmlparser = HtmlParser(base_url)
+htmlparser.itertofindandlistcomponents()
