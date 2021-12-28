@@ -55,7 +55,14 @@ class HtmlParser():
         for row in doc:
             if "<body" in row:
                 print(row)
+            elif "<link" in row:
+                print(row)
+            elif "<href" in row:
+                print(row)
+            elif "<a" in row:
+                print(row)
             else:
                 pass
+
 htmlparser = HtmlParser(base_url)
 htmlparser.itertofindandlistcomponents()

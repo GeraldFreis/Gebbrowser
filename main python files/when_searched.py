@@ -27,6 +27,7 @@ class WhenSearched():
         def searchingurl():
             search = self.url_bar_text.get()
             htmlparser = HtmlParser(search)
+            htmlparser.itertofindandlistcomponents()
         
         self.url_bar_button = Button(master=self.search_window,
         text="Search Url", bg="white", command=searchingurl)
