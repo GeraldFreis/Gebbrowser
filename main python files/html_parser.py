@@ -14,7 +14,7 @@ google_url = "https://www.google.com"
 
 
 """Functions"""
-def checkingelements(textline, dictname):  # function to check whether or not an element is a html element and to add the element to a dictionary if it is
+def checkingelements(textline):  # function to check whether or not an element is a html element and to add the element to a dictionary if it is
     # if statements to determine whether or not to add the data in the dictionary
     html_tag_list = ("<a>", "<address>", "<area>", "<article>", "<aside>", "<audio>", "<b>",
     "<base>", "<bdo>", "<blockquote>", "<body>", "<br />", "<button>", "<canvas>",
@@ -27,6 +27,10 @@ def checkingelements(textline, dictname):  # function to check whether or not an
     "<li>", "<link>", "<map>", "<mark>", "<menu>", "<meta>", "<meter>", "<nav>", "<noscript>", "<object>",
     "<ol>", "<optgroup>", "<option>", "<output>", "<p>", "<param>", "<pre>", "<progress>", "<q>",
     "<rp>", "<rt>", "<ruby>", "<s>", "<samp>", "<script>", "<section>", "<select>", "<source>", "<span>", "<strong>", "<style>", "<sub>", "<sup>", "<table>", "<tbody>", "<td>", "<textarea>", "<tfoot>", "<th>", "<thead>", "<time>", "<title>", "<tr>", "<track>", "<u>", "<ul>", "<var>", "<video>", "<wbr>" )
+
+    for tag in html_tag_list:
+        if tag in textline:
+            print(textline)
 
 
 """Parser to find the main html elements"""
@@ -65,16 +69,7 @@ class HtmlParser():
     def iterthroughfiles(self):
         doc = open("temphtml.txt", "r")
         for row in doc:
-            if "<body" in row:
-                print(row)
-            elif "<link" in row:
-                print(row)
-            elif "<href" in row:
-                print(row)
-            elif "<a" in row:
-                print(row)
-            else:
-                pass
+            checkingelements(textline=row)
 
 htmlparser = HtmlParser(base_url)
 htmlparser.iterthroughfiles()
