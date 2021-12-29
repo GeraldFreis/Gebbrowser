@@ -4,16 +4,18 @@ import tkinter.font as font
 from tkinter import *
 
 """Modular imports"""
-from html_parser import HtmlParser
+from html_parser import HtmlParser, iterthroughfiles
 
 """When searched is the protocol when a user searches a url"""
 class WhenSearched():
     def __init__(self, search):
         # creating the main window and setting the title as the retrieved title in HtmlParser
         self.search_window = Tk()
-        htmlparser = HtmlParser(search)
-        htmlparser.iterthroughfiles()
-        self.search_title = htmlparser.returningtitle()
+        html_parser = HtmlParser(search)
+
+        # iterthroughfiles()
+
+        self.search_title = html_parser.returningtitle()
         self.search_window.title(self.search_title)
         self.search_window.geometry("900x600+210+0")
         self.search_window.config(bg="white")
@@ -34,6 +36,7 @@ class WhenSearched():
         text="Search Url", bg="white", command=searchingurl)
 
     def apply(self):
+        
         """Foundational widgets"""
         self.url_bar.grid(row=2, column=21, columnspan=79, rowspan=10)
         self.url_bar_button.grid(row=2, column=80, columnspan=20)

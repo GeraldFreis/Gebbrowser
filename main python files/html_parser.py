@@ -83,11 +83,12 @@ def checkingelements(textline, htmlelementlist: list):  # function to check whet
             if tag in html_open_open_tag_list:
                 openopentag(tag, htmlelementlist, textline)
             elif tag in html_closed_open_tag_list:
-                closedopentag(tag, htmlelementlist)
-                
+                closedopentag(tag, htmlelementlist)    
             
 
 """Parser to find the main html elements"""
+
+
 class HtmlParser():
     def __init__(self, urltoparse):
         self.url_to_parse = urltoparse
@@ -119,12 +120,12 @@ class HtmlParser():
         """Returning the title"""
         return self.soup.title.string
 
-    
-    def iterthroughfiles(self):
-        doc = open("temphtml.txt", "r")
-        html_list_to_use = list()
-        
-        for row in doc:
-            checkingelements(textline=row, htmlelementlist=html_list_to_use)
 
-        return html_list_to_use
+def iterthroughfiles():
+    doc = open("temphtml.txt", "r")
+    html_list_to_use = list()
+
+    for row in doc:
+        checkingelements(textline=row, htmlelementlist=html_list_to_use)
+
+    return html_list_to_use
