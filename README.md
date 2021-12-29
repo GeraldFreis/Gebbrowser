@@ -9,6 +9,10 @@ I will be initially focusing on the UI element but a simple UI
 * UI to date will be a left frame taking up 1/5th of the screen, and then a central frame that is idle with a searchbar
 * UI is minimalistic as there's no point crowding the user
 
+Current main UI
+![image](https://user-images.githubusercontent.com/91832029/147658146-386227b3-4a95-4425-b813-054fe99d1cb1.png)
+
+
 // Update
 I am now onto focusing on the parsing of the html side of this webbrowser in the html parser document
 * To do this I am using urllib to retrieve the html, and then producing a html text
