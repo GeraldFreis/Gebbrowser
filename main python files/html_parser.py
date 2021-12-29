@@ -123,6 +123,8 @@ class HtmlParser():
     def iterthroughfiles(self):
         doc = open("temphtml.txt", "r")
         html_list_to_use = list()
+        
         for row in doc:
             checkingelements(textline=row, htmlelementlist=html_list_to_use)
-        print(html_list_to_use)
+
+        return html_list_to_use
