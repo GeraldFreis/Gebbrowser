@@ -12,6 +12,7 @@ class WhenSearched():
         # creating the main window and setting the title as the retrieved title in HtmlParser
         self.search_window = Tk()
         htmlparser = HtmlParser(search)
+        htmlparser.iterthroughfiles()
         self.search_title = htmlparser.returningtitle()
         self.search_window.title(self.search_title)
         self.search_window.geometry("900x600+210+0")
@@ -26,8 +27,8 @@ class WhenSearched():
 
         def searchingurl():
             search = self.url_bar.get()
-            htmlparser = HtmlParser(search)
-            htmlparser.iterthroughfiles()
+            # htmlparser = HtmlParser(search)
+            # htmlparser.iterthroughfiles()
         
         self.url_bar_button = Button(master=self.search_window,
         text="Search Url", bg="white", command=searchingurl)

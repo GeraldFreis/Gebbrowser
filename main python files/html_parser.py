@@ -126,8 +126,3 @@ class HtmlParser():
         for row in doc:
             checkingelements(textline=row, htmlelementlist=html_list_to_use)
         print(html_list_to_use)
-
-
-htmlparser = HtmlParser(google_url)
-htmlparser.iterthroughfiles()
-
