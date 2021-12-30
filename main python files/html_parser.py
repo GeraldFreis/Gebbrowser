@@ -21,9 +21,9 @@ def closedopentag(htmltag, htmllist: list, row):  # html opening tags that are c
     data_tuple = [htmltag, False, '', row]
     htmllist.append(data_tuple)
 
-def openopentag(htmltag, htmllist: list, line):  # html opening tags that have attributes / parameters
+def openopentag(htmltag, htmllist: list, line, row):  # html opening tags that have attributes / parameters
     new_line = line.strip(htmltag)
-    data_tuple = [htmltag, True, new_line]
+    data_tuple = [htmltag, True, new_line, row]
     htmllist.append(data_tuple)
 
 def closedtag(htmltag, htmllist: list, row):
@@ -121,7 +121,7 @@ def checkingelements(textline, htmlelementlist: list):  # function to check whet
         if tag in textline:
 
             if tag in html_open_open_tag_list:
-                openopentag(tag, htmlelementlist, textline)
+                openopentag(tag, htmlelementlist, textline, rowcounter)
                 rowcounter +=1
 
             elif tag in html_closed_open_tag_list:
