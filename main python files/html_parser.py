@@ -11,12 +11,14 @@ except Exception:
 """Globals"""
 base_url = "http://www.blankwebsite.com/"
 google_url = "https://www.google.com"
+global rowcounter
+rowcounter = 0
 
 
 """Functions"""
 
-def closedopentag(htmltag, htmllist: list):  # html opening tags that are closed i.e <>
-    data_tuple = [htmltag, False, '']
+def closedopentag(htmltag, htmllist: list, row):  # html opening tags that are closed i.e <>
+    data_tuple = [htmltag, False, '', row]
     htmllist.append(data_tuple)
 
 def openopentag(htmltag, htmllist: list, line):  # html opening tags that have attributes / parameters
@@ -24,9 +26,13 @@ def openopentag(htmltag, htmllist: list, line):  # html opening tags that have a
     data_tuple = [htmltag, True, new_line]
     htmllist.append(data_tuple)
 
+def closedtag(htmltag, htmllist: list, row):
+    sub_list = [htmltag, row]
+    htmllist.append(sub_list)
+
 def checkingelements(textline, htmlelementlist: list):  # function to check whether or not an element is a html element and to add the element to a dictionary if it is
     # if statements to determine whether or not to add the data in the dictionary
-    html_open_tag_list = ["<a>", "<address>", "<area>", "<article>", "<aside>", "<audio>", "<b>",
+    html_all_tag_list = ["<a>", "<address>", "<area>", "<article>", "<aside>", "<audio>", "<b>",
     "<base>", "<bdo>", "<blockquote>", "<body>", "<br />", "<button>", "<canvas>",
     "<caption>", "<cite>", "<code>", "<col>", "<colgroup>", "<command>", "<datagrid>", 
     "<datalist>", "<dd>", "<del>", "<details>", "<dfn>", "<dir>", "<div>", "<dl>",
@@ -48,7 +54,21 @@ def checkingelements(textline, htmlelementlist: list):  # function to check whet
     "<ol ", "<optgroup ", "<option ", "<output ", "<p ", "<param ", "<pre ", "<progress ", "<q ",
     "<rp ", "<rt ", "<ruby ", "<s ", "<samp ", "<script ", "<section ", "<select ", "<source ", "<span ",
     "<strong ", "<style ", "<sub ", "<sup ", "<table ", "<tbody ", "<td ", "<textarea ", "<tfoot ", "<th ",
-    "<thead ", "<time ", "<title ", "<tr ", "<track ", "<u ", "<ul ", "<va ", "<video ", "<wbr "]    
+    "<thead ", "<time ", "<title ", "<tr ", "<track ", "<u ", "<ul ", "<va ", "<video ", "<wbr ",
+    "</a>", "</address>", "</area>", "</article>", "</aside>", "</audio>", "</b>",
+    "</base>", "</bdo>", "</blockquote>", "</body>", "</br />", "</button>", "</canvas>",
+    "</caption>", "</cite>", "</code>", "</col>", "</colgroup>", "</command>", "</datagrid>", 
+    "</datalist>", "</dd>", "</del>", "</details>", "</dfn>", "</dir>", "</div>", "</dl>",
+    "</dt>", "</em>", "</embed>", "</fieldset>", "</figcaption>", "</figure>", "</font>",
+    "</footer>", "</form>", "</frame>", "</frameset>", "</h1>", "</h2>", "</h3>", "</h4>", "</h5>",
+    "</h6>", "</head>", "</header>", "</hgroup>", "</hr />", "</html>", "</i>", "</iframe>",
+    "</img>", "</input>", "</ins>", "</kbd>", "</keygen>", "</label>", "</legend>",
+    "</li>", "</link>", "</map>", "</mark>", "</menu>", "</meta>", "</meter>", "</nav>", "</noscript>", "</object>",
+    "</ol>", "</optgroup>", "</option>", "</output>", "</p>", "</param>", "</pre>", "</progress>", "</q>",
+    "</rp>", "</rt>", "</ruby>", "</s>", "</samp>", "</script>", "</section>", "</select>", "</source>", "</span>",
+    "</strong>", "</style>", "</sub>", "</sup>", "</table>", "</tbody>", "</td>",
+    "</textarea>", "</tfoot>", "</th>", "</thead>", "</time>", "</title>", "</tr>", 
+    "</track>", "</u>", "</ul>", "</var>", "</video>", "</wbr>"]    
 
     html_open_open_tag_list = ["<a ", "<address ", "<area ", "<article ", "<aside ", "<audio ", "<b ",
     "<base ", "<bdo ", "<blockquote ", "<body ", "<br / ", "<button ", "<canvas ",
@@ -74,16 +94,45 @@ def checkingelements(textline, htmlelementlist: list):  # function to check whet
     "<img>", "<input>", "<ins>", "<kbd>", "<keygen>", "<label>", "<legend>",
     "<li>", "<link>", "<map>", "<mark>", "<menu>", "<meta>", "<meter>", "<nav>", "<noscript>", "<object>",
     "<ol>", "<optgroup>", "<option>", "<output>", "<p>", "<param>", "<pre>", "<progress>", "<q>",
-    "<rp>", "<rt>", "<ruby>", "<s>", "<samp>", "<script>", "<section>", "<select>", "<source>", "<span>", "<strong>", "<style>", "<sub>", "<sup>", "<table>", "<tbody>", "<td>", "<textarea>", "<tfoot>", "<th>", "<thead>", "<time>", "<title>", "<tr>", "<track>", "<u>", "<ul>", "<var>", "<video>", "<wbr>"]
+    "<rp>", "<rt>", "<ruby>", "<s>", "<samp>", "<script>", "<section>", "<select>", "<source>",
+    "<span>", "<strong>", "<style>", "<sub>", "<sup>", "<table>", 
+    "<tbody>", "<td>", "<textarea>", "<tfoot>", "<th>", "<thead>", "<time>", "<title>", 
+    "<tr>", "<track>", "<u>", "<ul>", "<var>", "<video>", "<wbr>"]
     
-    html_closed_tag_list = []
+    html_closed_tag_list = ["</a>", "</address>", "</area>", "</article>", "</aside>", "</audio>", "</b>",
+    "</base>", "</bdo>", "</blockquote>", "</body>", "</br />", "</button>", "</canvas>",
+    "</caption>", "</cite>", "</code>", "</col>", "</colgroup>", "</command>", "</datagrid>", 
+    "</datalist>", "</dd>", "</del>", "</details>", "</dfn>", "</dir>", "</div>", "</dl>",
+    "</dt>", "</em>", "</embed>", "</fieldset>", "</figcaption>", "</figure>", "</font>",
+    "</footer>", "</form>", "</frame>", "</frameset>", "</h1>", "</h2>", "</h3>", "</h4>", "</h5>",
+    "</h6>", "</head>", "</header>", "</hgroup>", "</hr />", "</html>", "</i>", "</iframe>",
+    "</img>", "</input>", "</ins>", "</kbd>", "</keygen>", "</label>", "</legend>",
+    "</li>", "</link>", "</map>", "</mark>", "</menu>", "</meta>", "</meter>", "</nav>", "</noscript>", "</object>",
+    "</ol>", "</optgroup>", "</option>", "</output>", "</p>", "</param>", "</pre>", "</progress>", "</q>",
+    "</rp>", "</rt>", "</ruby>", "</s>", "</samp>", "</script>", "</section>", "</select>", "</source>", "</span>",
+    "</strong>", "</style>", "</sub>", "</sup>", "</table>", "</tbody>", "</td>",
+    "</textarea>", "</tfoot>", "</th>", "</thead>", "</time>", "</title>", "</tr>", 
+    "</track>", "</u>", "</ul>", "</var>", "</video>", "</wbr>"]
 
-    for tag in html_open_tag_list:
+    global rowcounter
+
+    for tag in html_all_tag_list:
+
         if tag in textline:
+
             if tag in html_open_open_tag_list:
                 openopentag(tag, htmlelementlist, textline)
+                rowcounter +=1
+
             elif tag in html_closed_open_tag_list:
-                closedopentag(tag, htmlelementlist)    
+                closedopentag(tag, htmlelementlist, rowcounter)
+                rowcounter += 1
+
+            elif tag in html_closed_tag_list:
+                closedtag(tag, htmlelementlist, rowcounter)
+                rowcounter += 1
+
+        
             
 
 """Parser to find the main html elements"""
@@ -127,5 +176,7 @@ def returninghtmllist():
 
     for row in doc:
         checkingelements(textline=row, htmlelementlist=html_list_to_use)
-
+    # print(html_list_to_use)
     return html_list_to_use
+
+returninghtmllist()

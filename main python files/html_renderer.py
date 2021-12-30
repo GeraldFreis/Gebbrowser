@@ -17,7 +17,7 @@ class HtmlRenderer():
     def __init__(self, mainwindow, searchedurl):
         self.rendering_window = mainwindow
 
-        self.html_parser = HtmlParser(searchedurl)
+        self.html_parser = HtmlParser(searchedurl)  # this is arbitrary as it is already run in the when_searched module
 
         self.html_list = returninghtmllist()
 
