@@ -121,7 +121,7 @@ class HtmlParser():
         return self.soup.title.string
 
 
-def iterthroughfiles():
+def returninghtmllist():
     doc = open("temphtml.txt", "r")
     html_list_to_use = list()
 
