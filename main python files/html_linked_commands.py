@@ -1,5 +1,8 @@
 import tkinter as tk
 from tkinter import *
+
+"""Modular imports"""
+from random_functions import openingurl
 """Functions"""
 
 # html tags with arguments
@@ -7,9 +10,14 @@ def atagwithargs(window, contents, rownumber):
     individual_contents = contents.split()
     for elements in individual_contents:
         if "href" in elements:
-            
+            elements.strip("href")
+            def quickfix():
+                openingurl(elements)
+            Button(master=window, text="hello", command=quickfix).grid(row=rownumber, column=40)
+        else:
+            print("didnt work")
 
-    Label(master=window, text=contents).grid(row=rownumber, column=20)
+    # Label(master=window, text=contents).grid(row=rownumber, column=20)
 
 def addresswithargs(window, contents, rownumber):
     Label(master=window, text=contents).grid(row=rownumber, column=40)
