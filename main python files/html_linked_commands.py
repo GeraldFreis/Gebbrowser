@@ -4,7 +4,7 @@ from tkinter import *
 
 # html tags with arguments
 def atagwithargs(window, contents, rownumber):
-    Label(master=window, text=contents).grid(row=rownumber, column=40)
+    Label(master=window, text=contents).grid(row=rownumber, column=20)
 
 def addresswithargs(window, contents, rownumber):
     Label(master=window, text=contents).grid(row=rownumber, column=40)
