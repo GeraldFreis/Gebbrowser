@@ -4,6 +4,11 @@ from tkinter import *
 
 # html tags with arguments
 def atagwithargs(window, contents, rownumber):
+    individual_contents = contents.split()
+    for elements in individual_contents:
+        if "href" in elements:
+            
+
     Label(master=window, text=contents).grid(row=rownumber, column=20)
 
 def addresswithargs(window, contents, rownumber):
