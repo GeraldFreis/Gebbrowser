@@ -15,7 +15,6 @@ def atagwithargs(window, contents, rownumber):
             new = stripped_2.strip('"')
             def quickfix():
                 openingurl(new)
-                print(new)
             Button(master=window, command=quickfix).grid(row=rownumber, column=40)
         else:
             pass

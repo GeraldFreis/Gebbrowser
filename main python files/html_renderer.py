@@ -7,10 +7,9 @@ from html_parser import HtmlParser, returninghtmllist
 from html_linked_commands import *
 
 class HtmlRenderer():
+
     def __init__(self, mainwindow, searchedurl):
         self.rendering_window = mainwindow
-
-        self.html_parser = HtmlParser(searchedurl)  # this is arbitrary as it is already run in the when_searched module
 
         self.html_list = returninghtmllist()
 
@@ -27,6 +26,7 @@ class HtmlRenderer():
             
             elif items[0] == "<address ":
                 addresswithargs(self.rendering_window, items[2], self.row_number)
+            
         
         self.rendering_window.mainloop()
 
