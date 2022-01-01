@@ -1,3 +1,5 @@
+import tkinter as tk
+from tkinter import *
 """Functions"""
 
 # html tags with arguments
