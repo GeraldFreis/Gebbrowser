@@ -1,5 +1,6 @@
 import tkinter as tk
-import webbrowser
+import webbrowser as wb
 
 def openingurl(url):
-    webbrowser.open(url)
+    used_url = url.strip('"')
+    wb.open(url, new=1)

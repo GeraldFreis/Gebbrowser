@@ -9,14 +9,16 @@ from random_functions import openingurl
 def atagwithargs(window, contents, rownumber):
     individual_contents = contents.split()
     for elements in individual_contents:
-        if "href" in elements:
-            elements.strip("href")
+        if "href=" in elements:
+            stripped = elements.strip(">")
+            stripped_2 = stripped.strip("href=")
+            new = stripped_2.strip('"')
             def quickfix():
-                openingurl(elements)
-            Button(master=window, text="hello", command=quickfix).grid(row=rownumber, column=40)
+                openingurl(new)
+                print(new)
+            Button(master=window, command=quickfix).grid(row=rownumber, column=40)
         else:
-            print("didnt work")
-
+            pass
     # Label(master=window, text=contents).grid(row=rownumber, column=20)
 
 def addresswithargs(window, contents, rownumber):
